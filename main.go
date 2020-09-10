@@ -9,15 +9,15 @@ import (
 )
 
 const (
-	helpString            = "Parameters: amount from_currency to_currency\nExample: fiatconv 123.45 USD RUB"
-	reqestFormat          = "https://api.exchangeratesapi.io/latest"
-	errConnStatusMessage  = "Connection status error"
-	errParsingJSONMessage = "Error parsing JSON"
-	errPatsingCurrency = "No value for"
+	helpString              = "Parameters: amount from_currency to_currency\nExample: fiatconv 123.45 USD RUB"
+	reqestFormat            = "https://api.exchangeratesapi.io/latest"
+	errConnStatusMessage    = "Connection status error"
+	errParsingJSONMessage   = "Error parsing JSON"
+	errPatsingCurrency      = "No value for"
 	errParsingAmountMessage = "Error parsing amount"
-	resultMessage = "According to European Central Bank %6.4f %v = %6.4f %v\n"
-	reachManMessage = "%6.4f %v! Wow, you are rich man!\n"
-	looserManMessage = "Only %6.4f %v?! Loser!\n"
+	resultMessage           = "According to European Central Bank %6.4f %s = %6.4f %s for %s\n"
+	reachManMessage         = "%6.4f %v! Wow, you are rich man!\n"
+	looserManMessage        = "Only %6.4f %v?! Loser!\n"
 )
 
 func main() {
@@ -44,6 +44,7 @@ func main() {
 	}
 
 	mainData := data.(map[string]interface{})
+	publishDate := mainData["date"].(string)
 	currencyData := mainData["rates"].(map[string]interface{})
 
 	fromValue := currencyData[args[1]]
@@ -74,5 +75,5 @@ func main() {
 		fmt.Printf(looserManMessage, amount, args[1])
 	}
 
-	fmt.Printf(resultMessage, amount, args[1], convertionResult,  args[2])
+	fmt.Printf(resultMessage, amount, args[1], convertionResult, args[2], publishDate)
 }
