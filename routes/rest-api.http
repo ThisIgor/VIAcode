@@ -1,0 +1,216 @@
+POST localhost:3000/signup HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+"Name": "nobody",
+"RoleID": "1",
+"Login": "4321",
+"Password": "1234"
+}
+
+###
+
+POST localhost:3000/signin HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+"Name": "nobody",
+"RoleID": "1",
+"Login": "4321",
+"Password": "1234"
+}
+
+###------------------------------------------------------------------- User --------------------------------------------
+
+GET localhost:3000/api/encyclopedia/user/ HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
+
+GET localhost:3000/api/encyclopedia/user/11 HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+###
+
+PUT localhost:3000/api/encyclopedia/user/7 HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "Name": "nobody",
+  "RoleID": 1,
+  "Login": "4321",
+  "Password": "1234"
+}
+
+###
+
+DELETE localhost:3000/api/encyclopedia/user/1 HTTP/1.1
+Host: localhost
+Accept: */*
+
+###--------------------------------------------------------------- Article Attribute------------------------------------
+
+GET localhost:3000/api/encyclopedia/articleattribute/3 HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
+
+GET localhost:3000/api/encyclopedia/articleattribute/attribute/11 HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
+
+POST localhost:3000/api/encyclopedia/articleattribute HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "name": "article"
+}
+
+###
+
+PUT localhost:3000/api/encyclopedia/articleattribute/7 HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "name": "article"
+}
+
+###
+
+DELETE localhost:3000/api/encyclopedia/articleattribute/16 HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
+
+POST localhost:3000/api/encyclopedia/articleattribute/bindattribute HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "AttributeID": 6,
+  "ArticleID": 99,
+  "Value": "property"
+}
+
+###--------------------------------------------------------------- Article ---------------------------------------------
+
+POST localhost:3000/api/encyclopedia/article HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "Bkackword": "Black worsd",
+  "ArticleTypeID": 6,
+  "Permissions": 67,
+  "Content": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+}
+
+###
+
+GET localhost:3000/api/encyclopedia/article HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
+
+GET localhost:3000/api/encyclopedia/article/11 HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
+
+PUT localhost:3000/api/encyclopedia/article/7 HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "Bkackword": "Black worsd",
+  "ArticleTypeID": 6,
+  "Permissions": 67,
+  "Content": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
+}
+
+###
+
+DELETE localhost:3000/api/encyclopedia/article/16 HTTP/1.1
+Host: localhost
+Accept: */*
+
+###----------------------------------------------------------- Article type---------------------------------------------
+
+POST localhost:3000/api/encyclopedia/articletype HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "InternalName": "GGG",
+  "FullName": "ggggggggggggg",
+  "Description": "kkkkkkkkkkkk",
+  "HeadingID": 2,
+  "GroupID": 79
+}
+
+###----------------------------------------------------------- Role-----------------------------------------------------
+
+POST localhost:3000/api/encyclopedia/role/ HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "Name":"Testrole1",
+  "PermissionsID":[1,2,3,4,5,6,7,8,9]
+}
+
+###
+
+PUT localhost:3000/api/encyclopedia/role/130 HTTP/1.1
+Host: localhost
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "Name":"Test",
+  "PermissionsID":[3]
+}
+
+###
+
+GET localhost:3000/api/encyclopedia/role/roles/ HTTP/1.1
+Host: localhost
+Accept: */*
+
+###
