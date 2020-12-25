@@ -6,4 +6,5 @@ type Department struct {
 	gorm.Model
 	// 1
 	Name string `gorm:"type:varchar(1024);unique;not null"` // 2
+	Init(data string) error
 }
